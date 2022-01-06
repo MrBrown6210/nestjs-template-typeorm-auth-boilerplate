@@ -12,7 +12,7 @@ import { configValidationSchema } from './config.schema';
     AuthModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      validationOptions: configValidationSchema,
+      validationSchema: configValidationSchema,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
