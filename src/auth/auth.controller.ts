@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, Logger, Post } from '@nestjs/common';
 import {
   ApiConflictResponse,
   ApiCreatedResponse,
@@ -21,7 +21,7 @@ export class AuthController {
     description: 'The email is already exists.',
   })
   signUp(@Body() signUpDto: SignUpDto): Promise<void> {
-    console.log('x');
+    Logger.log('test');
     return this.authService.signUp(signUpDto);
   }
 

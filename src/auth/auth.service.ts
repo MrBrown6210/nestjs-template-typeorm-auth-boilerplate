@@ -36,14 +36,12 @@ export class AuthService {
   }
 
   public async login(loginDto: LoginDto) {
-    console.log(loginDto);
     const { email, password } = loginDto;
     const user = await this.user.findOne({
       where: {
         email,
       },
     });
-    console.log(user);
     if (!user || !(await bcrypt.compare(password, user.password)))
       throw new UnauthorizedException();
     const payload: JwtPayload = {
